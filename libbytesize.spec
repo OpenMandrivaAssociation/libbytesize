@@ -33,7 +33,7 @@ representation of a size in bytes this library takes localization into
 account. It also provides support for sizes bigger than MAXUINT64.
 
 %package -n	%{libname}
-Summary:	Library for accessing USB devices
+Summary:	A library for working with sizes in bytes
 Group:		System/Libraries
 
 %description -n	%{libname}
