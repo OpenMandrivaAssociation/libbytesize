@@ -1,13 +1,13 @@
 %define realname bytesize
 %define with_python2 0
-%define with_gtk_doc 0
+%define with_gtk_doc 1
 
 %define major 1
 %define libname	%mklibname bytesize %{major}
 %define devname	%mklibname -d bytesize
 
 Name:        libbytesize
-Version:     0.11
+Version:     1.0
 Release:     1
 Summary:     A library for working with sizes in bytes
 License:     LGPLv2+
@@ -73,7 +73,7 @@ the library from Python 2 easier and more convenient.
 %endif
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q -n %{name}-%{name}-%{version}
 
 %build
 %configure %{?configure_opts}
@@ -84,7 +84,7 @@ the library from Python 2 easier and more convenient.
 find %{buildroot} -type f -name "*.la" | xargs %{__rm}
 
 
-%find_lang %{name}
+%find_lang %{name} || touch %{name}.lang
 
 %if %{with_python2}
 pushd src/python
