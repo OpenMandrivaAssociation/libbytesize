@@ -3,27 +3,27 @@
 %define with_gtk_doc 1
 
 %define major 1
-%define libname	%mklibname bytesize %{major}
-%define devname	%mklibname -d bytesize
+%define libname %mklibname bytesize %{major}
+%define devname %mklibname -d bytesize
 
-Name:        libbytesize
-Version:     1.0
-Release:     1
-Summary:     A library for working with sizes in bytes
-License:     LGPLv2+
-URL:         https://github.com/rhinstaller/libbytesize
-Source0:     https://github.com/rhinstaller/libbytesize/archive/%{name}-%{version}.tar.gz
+Name:		libbytesize
+Version:	1.3
+Release:	1
+Summary:	A library for working with sizes in bytes
+License:	LGPLv2+
+URL:		https://github.com/rhinstaller/libbytesize
+Source0:	https://github.com/rhinstaller/libbytesize/archive/%{name}-%{version}.tar.gz
 
-BuildRequires: gmp-devel
-BuildRequires: mpfr-devel
-BuildRequires: pcre-devel
-BuildRequires: gettext-devel
-BuildRequires: python-devel
+BuildRequires:	gmp-devel
+BuildRequires:	mpfr-devel
+BuildRequires:	pcre-devel
+BuildRequires:	gettext-devel
+BuildRequires:	pkgconfig(python)
 %if %{with_python2}
-BuildRequires: python2-devel
+BuildRequires:	pkgconfig(python2)
 %endif
 %if %{with_gtk_doc}
-BuildRequires: gtk-doc
+BuildRequires:	gtk-doc
 %endif
 
 %description
@@ -32,30 +32,30 @@ bytes. Be it parsing the input from users or producing a nice human readable
 representation of a size in bytes this library takes localization into
 account. It also provides support for sizes bigger than MAXUINT64.
 
-%package -n	%{libname}
+%package -n %{libname}
 Summary:	A library for working with sizes in bytes
 Group:		System/Libraries
 
-%description -n	%{libname}
+%description -n %{libname}
 The libbytesize is a C library that facilitates work with sizes in
 bytes. Be it parsing the input from users or producing a nice human readable
 representation of a size in bytes this library takes localization into
 account. It also provides support for sizes bigger than MAXUINT64.
 
-%package -n	%{devname}
+%package -n %{devname}
 Summary:	Development files for %{name}
 Group:		Development/C
 Requires:	%{libname} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 
-%description -n	%{devname}
+%description -n %{devname}
 This package includes the development files for %{name}.
 
 %package -n python-%{realname}
-Summary: Python 3 bindings for libbytesize
-Requires: %{libname} = %{version}-%{release}
-Provides: python-%{realname} = %{EVRD}
-Requires: python-six
+Summary:	Python 3 bindings for libbytesize
+Requires:	%{libname} = %{version}-%{release}
+Provides:	python-%{realname} = %{EVRD}
+Requires:	python-six
 
 %description -n python-%{realname}
 This package contains Python 3 bindings for libbytesize making the use of
