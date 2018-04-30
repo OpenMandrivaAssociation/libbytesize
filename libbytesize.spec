@@ -73,7 +73,7 @@ the library from Python 2 easier and more convenient.
 %endif
 
 %prep
-%setup -q -n %{name}-%{name}-%{version}
+%setup -q
 
 %build
 %configure %{?configure_opts}
