@@ -7,7 +7,7 @@
 %define devname %mklibname -d bytesize
 
 Name:		libbytesize
-Version:	1.3
+Version:	1.4
 Release:	1
 Summary:	A library for working with sizes in bytes
 License:	LGPLv2+
@@ -73,16 +73,15 @@ the library from Python 2 easier and more convenient.
 %endif
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 %configure %{?configure_opts}
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 find %{buildroot} -type f -name "*.la" | xargs %{__rm}
-
 
 %find_lang %{name} || touch %{name}.lang
 
