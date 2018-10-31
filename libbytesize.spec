@@ -8,7 +8,7 @@
 
 Name:		libbytesize
 Version:	1.4
-Release:	1
+Release:	2
 Summary:	A library for working with sizes in bytes
 License:	LGPLv2+
 URL:		https://github.com/rhinstaller/libbytesize
