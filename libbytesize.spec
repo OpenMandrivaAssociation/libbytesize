@@ -1,5 +1,4 @@
 %define realname bytesize
-%define with_python2 0
 %define with_gtk_doc 1
 
 %define major 1
@@ -7,8 +6,8 @@
 %define devname %mklibname -d bytesize
 
 Name:		libbytesize
-Version:	1.4
-Release:	2
+Version:	2.0
+Release:	1
 Summary:	A library for working with sizes in bytes
 License:	LGPLv2+
 URL:		https://github.com/rhinstaller/libbytesize
@@ -16,12 +15,9 @@ Source0:	https://github.com/rhinstaller/libbytesize/archive/%{name}-%{version}.t
 
 BuildRequires:	gmp-devel
 BuildRequires:	mpfr-devel
-BuildRequires:	pcre-devel
+BuildRequires:	pkgconfig(libpcre2-8)
 BuildRequires:	gettext-devel
 BuildRequires:	pkgconfig(python)
-%if %{with_python2}
-BuildRequires:	pkgconfig(python2)
-%endif
 %if %{with_gtk_doc}
 BuildRequires:	gtk-doc
 %endif
@@ -61,35 +57,18 @@ Requires:	python-six
 This package contains Python 3 bindings for libbytesize making the use of
 the library from Python 3 easier and more convenient.
 
-%if %{with_python2}
-%package -n python2-%{realname}
-Summary:	Python 2 bindings for libbytesize
-Requires:	%{libname} = %{version}-%{release}
-Requires:	python2-six
-
-%description -n python2-%{realname}
-This package contains Python 2 bindings for libbytesize making the use of
-the library from Python 2 easier and more convenient.
-%endif
-
 %prep
 %autosetup -p1
 
 %build
-%configure %{?configure_opts}
+%configure
 %make_build
 
 %install
 %make_install
-find %{buildroot} -type f -name "*.la" | xargs %{__rm}
+find %{buildroot} -type f -name "*.la" -delete
 
 %find_lang %{name} || touch %{name}.lang
-
-%if %{with_python2}
-pushd src/python
-%make clean
-%makeinstall_std PYTHON=/usr/bin/python2
-%endif
 
 %files -n %{libname}
 %{_libdir}/libbytesize.so.%{major}*
@@ -109,10 +88,3 @@ pushd src/python
 %files -n python-%{realname}
 %dir %{python_sitearch}/bytesize
 %{python_sitearch}/bytesize/*
-
-%if %{with_python2}
-%files -n python2-%{realname}
-%dir %{python2_sitearch}/bytesize
-%{python2_sitearch}/bytesize/*
-%{python2_sitearch}/bytesize/__pycache__/*
-%endif
