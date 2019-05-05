@@ -41,8 +41,9 @@ account. It also provides support for sizes bigger than MAXUINT64.
 %package -n %{devname}
 Summary:	Development files for %{name}
 Group:		Development/C
-Requires:	%{libname} = %{version}-%{release}
-Provides:	%{name}-devel = %{version}-%{release}
+Requires:	%{libname} = %{EVRD}
+Requires:	%{name} = %{EVRD}
+Provides:	%{name}-devel = %{EVRD}
 
 %description -n %{devname}
 This package includes the development files for %{name}.
@@ -69,6 +70,10 @@ the library from Python 3 easier and more convenient.
 find %{buildroot} -type f -name "*.la" -delete
 
 %find_lang %{name} || touch %{name}.lang
+
+%files
+%{_bindir}/bscalc
+%{_mandir}/man1/bscalc.1*
 
 %files -n %{libname}
 %{_libdir}/libbytesize.so.%{major}*
