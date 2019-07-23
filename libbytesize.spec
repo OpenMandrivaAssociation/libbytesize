@@ -6,7 +6,7 @@
 %define devname %mklibname -d bytesize
 
 Name:		libbytesize
-Version:	2.0
+Version:	2.1
 Release:	1
 Summary:	A library for working with sizes in bytes
 License:	LGPLv2+
