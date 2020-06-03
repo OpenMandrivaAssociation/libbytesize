@@ -6,12 +6,12 @@
 %define devname %mklibname -d bytesize
 
 Name:		libbytesize
-Version:	2.2
+Version:	2.3
 Release:	1
 Summary:	A library for working with sizes in bytes
 License:	LGPLv2+
 URL:		https://github.com/rhinstaller/libbytesize
-Source0:	https://github.com/rhinstaller/libbytesize/archive/%{name}-%{version}.tar.gz
+Source0:	https://github.com/storaged-project/libbytesize/releases/download/%{version}/%{name}-%{version}.tar.gz
 
 BuildRequires:	gmp-devel
 BuildRequires:	mpfr-devel
