@@ -4,9 +4,10 @@
 %define major 1
 %define libname %mklibname bytesize %{major}
 %define devname %mklibname -d bytesize
+%global optflags %{optflags} -O3
 
 Name:		libbytesize
-Version:	2.3
+Version:	2.4
 Release:	1
 Summary:	A library for working with sizes in bytes
 License:	LGPLv2+
