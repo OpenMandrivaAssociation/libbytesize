@@ -7,7 +7,7 @@
 %global optflags %{optflags} -O3
 
 Name:		libbytesize
-Version:	2.5
+Version:	2.6
 Release:	1
 Summary:	A library for working with sizes in bytes
 License:	LGPLv2+
