@@ -7,7 +7,7 @@
 %global optflags %{optflags} -O3
 
 Name:		libbytesize
-Version:	2.6
+Version:	2.7
 Release:	1
 Summary:	A library for working with sizes in bytes
 License:	LGPLv2+
@@ -74,7 +74,7 @@ find %{buildroot} -type f -name "*.la" -delete
 
 %files
 %{_bindir}/bscalc
-%{_mandir}/man1/bscalc.1*
+%doc %{_mandir}/man1/bscalc.1*
 
 %files -n %{libname}
 %{_libdir}/libbytesize.so.%{major}*
