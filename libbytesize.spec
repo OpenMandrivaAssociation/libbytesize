@@ -4,18 +4,18 @@
 %define major 1
 %define libname %mklibname bytesize %{major}
 %define devname %mklibname -d bytesize
-%global optflags %{optflags} -O3
+%global optflags %{optflags} -Oz
 
 Name:		libbytesize
-Version:	2.7
-Release:	2
+Version:	2.8
+Release:	1
 Summary:	A library for working with sizes in bytes
 License:	LGPLv2+
 URL:		https://github.com/rhinstaller/libbytesize
 Source0:	https://github.com/storaged-project/libbytesize/releases/download/%{version}/%{name}-%{version}.tar.gz
 
-BuildRequires:	gmp-devel
-BuildRequires:	mpfr-devel
+BuildRequires:	pkgconfig(gmp)
+BuildRequires:	pkgconfig(mpfr)
 BuildRequires:	pkgconfig(libpcre2-8)
 BuildRequires:	gettext-devel
 BuildRequires:	pkgconfig(python)
