@@ -14,6 +14,11 @@ License:	LGPLv2+
 URL:		https://github.com/rhinstaller/libbytesize
 Source0:	https://github.com/storaged-project/libbytesize/releases/download/%{version}/%{name}-%{version}.tar.gz
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(gmp)
 BuildRequires:	pkgconfig(mpfr)
 BuildRequires:	pkgconfig(libpcre2-8)
